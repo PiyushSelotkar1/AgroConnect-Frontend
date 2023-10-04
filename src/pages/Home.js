@@ -116,9 +116,12 @@ const Home = () => {
                 <div className='col-md-3 mt-2'>
                     <h4 className='text-center'>Filter by Category</h4>
                     <div className='d-flex flex-column'>
-                        {categories?.map((c) => (<Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                            {c.name}
-                        </Checkbox>
+                                                {categories?.map((c) => (<label key={c._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'>
+                            <input className='container-checkbox' type='checkbox'
+                                onChange={(e) => handleFilter(e.target.checked, c._id)}
+                            />
+                            &nbsp; &nbsp;{c.name}
+                        </label>
                         ))}
                     </div>
                     <h4 className='text-center mt-3'>Filter by Price</h4>
