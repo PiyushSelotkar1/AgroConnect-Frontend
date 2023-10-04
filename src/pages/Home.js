@@ -127,7 +127,7 @@ const Home = () => {
                     <h4 className='text-center mt-3'>Filter by Price</h4>
                     <div className='d-flex flex-column'>
                         <Radio.Group>
-                            {Prices?.map((p) => (<div key={p._id}>
+                            {Prices?.map((p) => (<div key={p._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'}>
                                 <Radio value={p.array} onChange={(e) => setRadio(e.target.value)}>
                                     {p.name}
                                 </Radio>
