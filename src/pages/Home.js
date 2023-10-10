@@ -116,10 +116,13 @@ const Home = () => {
                 <div className='col-md-3 mt-2'>
                     <h4 className='text-center'>Filter by Category</h4>
                     <div className='d-flex flex-column'>
-                                                {categories?.map((c) => (<label key={c._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'>
+                        {categories?.map((c) => (<label key={c._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'>
                             <input className='container-checkbox' type='checkbox'
                                 onChange={(e) => handleFilter(e.target.checked, c._id)}
                             />
+                            {/* <Checkbox onChange={(e) => handleFilter(e.target.checked, c._id)}>
+                                    {c.name}
+                                </Checkbox> */}
                             &nbsp; &nbsp;{c.name}
                         </label>
                         ))}
@@ -127,7 +130,7 @@ const Home = () => {
                     <h4 className='text-center mt-3'>Filter by Price</h4>
                     <div className='d-flex flex-column'>
                         <Radio.Group>
-                            {Prices?.map((p) => (<div key={p._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'}>
+                            {Prices?.map((p) => (<div className='shadow-sm p-2 mb-1 bg-body-primary rounded' key={p._id}>
                                 <Radio value={p.array} onChange={(e) => setRadio(e.target.value)}>
                                     {p.name}
                                 </Radio>
