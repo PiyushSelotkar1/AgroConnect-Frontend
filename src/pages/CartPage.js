@@ -88,8 +88,8 @@ const CartPage = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-12'>
-                        <h2 className='text-center mt-3'>{`Hello ${auth?.token && auth?.user?.name}`}</h2>
-                        <h4 className='text-center'>
+                        <h2 className='text-center mt-3 tw-font-sans tw-text-green-500 tw-text-2xl'>{`Hello ${auth?.token && auth?.user?.name}`}</h2>
+                        <h4 className='text-center tw-font-sans tw-text-red-300 tw-text-xl'>
                             {cart.length > 0 ? `You have ${cart.length} items in your cart ${auth?.token ? "" : 'Please Log in to checkout'}` : 'Your Cart is empty'}
                         </h4>
                     </div>
@@ -101,26 +101,26 @@ const CartPage = () => {
                                 <div className='col-md-4'>
                                     <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                                         className="card-img-top"
-                                        alt="..." style={{ height: '190px', width: '200px' }} />
+                                        alt="..." style={{ height: '190px', width: '230px', marginTop: "8px", marginBottom: "8px", borderRadius: "5px" }} />
                                 </div>
                                 <div className='col-md-8 mt-3'>
                                     <h5 className="card-title">{p.name}</h5>
                                     <p className="card-text">{p.description.substring(0, 30)}...</p>
-                                    <p className="card-text"> Price: ${p.price}</p>
-                                    <button className='btn btn-danger' onClick={() => removeCartItem(p._id)}>Remove</button>
+                                    <p className="card-text tw-font-sans"> Price: ${p.price}</p>
+                                    <button className='btn btn-danger tw-transform active:tw-scale-110' onClick={() => removeCartItem(p._id)}>Remove</button>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <div className='col-md-5 text-center'>
-                        <h4>Cart Summary</h4>
-                        <h4>Total | Checkout | Payment</h4>
+                        <h4 className='tw-font-sans tw-text-slate-700 tw-text-lg'>Cart Summary</h4>
+                        <h4 className='tw-text-slate-700 tw-text-lg'>Total | Checkout | Payment</h4>
                         <hr />
-                        <h2>Total: {totalPrice()}</h2>
+                        <h2 className='tw-text-slate-700 tw-text-lg'>Total: {totalPrice()}</h2>
                         {auth?.user?.address ? (
                             <>
                                 <div className='mb-3'>
-                                    <h4>Current Address</h4>
+                                    <h4 className='tw-text-slate-700 tw-text-lg'>Current Address</h4>
                                     <h1>{auth?.user?.address}</h1>
                                     <button className='btn btn-outline-warning'
                                         onClick={() => navigate('/dashboard/user/profile')}

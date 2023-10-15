@@ -5,7 +5,7 @@ const AdminMenu = () => {
     return (
         <div className='text-center'>
             <div className="list-group">
-                <h3> Admin Panel</h3>
+                <h3 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'> Admin Panel</h3>
                 <NavLink to="/dashboard/admin/create-category"
                     className="list-group-item list-group-item-action" >
                     Create Category

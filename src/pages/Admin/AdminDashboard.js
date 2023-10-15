@@ -13,9 +13,9 @@ const AdminDashboard = () => {
                     <div className='col-md-9'>
                         <div class="card w-75">
                             <div class="card-body">
-                                <h4>Admin Name : {auth?.user?.name}</h4>
-                                <h4>Admin Email : {auth?.user?.email}</h4>
-                                <h4>Admin Phone : {auth?.user?.phone}</h4>
+                                <h4 className=' tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Admin Name : {auth?.user?.name}</h4>
+                                <h4 className=' tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Admin Email : {auth?.user?.email}</h4>
+                                <h4 className=' tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Admin Phone : {auth?.user?.phone}</h4>
                             </div>
                         </div>
                     </div>

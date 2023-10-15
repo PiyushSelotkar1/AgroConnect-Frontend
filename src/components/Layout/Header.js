@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { AiOutlineShop } from 'react-icons/ai';
 import { useAuth } from '../../context/auth';
-import { Toast, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import SearchInput from '../form/SearchInput';
 import useCategory from '../../Hooks/useCategory';
 import { useCart } from '../../context/cart';
@@ -34,7 +34,7 @@ const Header = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <Link to="/" className="navbar-brand"><AiOutlineShop /> Ecommerce App</Link>
+                        <Link to="/" className="navbar-brand tw-text-green-600"><AiOutlineShop /> Ecommerce App</Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <SearchInput />
                             <li className="nav-item">

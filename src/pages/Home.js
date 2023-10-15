@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout/Layout';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-import { Checkbox, Radio } from 'antd';
+import { Radio } from 'antd';
 import { Prices } from '../components/Prices';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/cart';
-import { Toast } from 'react-hot-toast';
 import Image6 from './images/Empty.gif'
 const Home = () => {
     const navigate = useNavigate();
@@ -28,6 +27,34 @@ const Home = () => {
             all = all.filter((c) => c !== id)
         }
         setChecked(all);
+    }
+    //filters
+    const filteredProducts = async () => {
+        try {
+            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, { checked, radio })
+            // if (data?.success) {
+            setProducts(data?.products);
+            // }
+
+        } catch (error) {
+            console.log(error.message);
+            toast.error("Something went wrong")
+        }
+    }
+    //get all products
+    const getAllProducts = async () => {
+        try {
+            setLoading(true);
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product`)
+            setLoading(false);
+            // if (data?.success) {
+            setProducts(data?.products);
+            // }
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong")
+            setLoading(false);
+        }
     }
     useEffect(() => {
         if (!checked.length || !radio.length) getAllProducts()
@@ -52,6 +79,7 @@ const Home = () => {
         getAllCategories();
         getTotal();
     }, []);
+
     //get total count
     const getTotal = async () => {
         try {
@@ -79,52 +107,28 @@ const Home = () => {
             console.log(error);
         }
     }
-    //get all products
-    const getAllProducts = async () => {
-        try {
-            setLoading(true);
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product`)
-            setLoading(false);
-            // if (data?.success) {
-            setProducts(data?.products);
-            // }
-        } catch (error) {
-            console.log(error);
-            toast.error("Something went wrong")
-            setLoading(false);
-        }
-    }
 
-
-
-    //filters
-    const filteredProducts = async () => {
-        try {
-            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, { checked, radio })
-            // if (data?.success) {
-            setProducts(data?.products);
-            // }
-
-        } catch (error) {
-            console.log(error.message);
-            toast.error("Something went wrong")
-        }
-    }
     return (
         <Layout title={"All Products - Best Offers"}>
             <div className='row mt-3 ms-2'>
                 <div className='col-md-3 mt-2'>
                     <h4 className='text-center'>Filter by Category</h4>
                     <div className='d-flex flex-column'>
-                        {categories?.map((c) => (<Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                            {c.name}
-                        </Checkbox>
+                        {categories?.map((c) => (<label key={c._id} className='shadow-sm p-2 mb-1 bg-body-primary rounded'>
+                            <input className='container-checkbox' type='checkbox'
+                                onChange={(e) => handleFilter(e.target.checked, c._id)}
+                            />
+                            {/* <Checkbox onChange={(e) => handleFilter(e.target.checked, c._id)}>
+                                    {c.name}
+                                </Checkbox> */}
+                            &nbsp; &nbsp;{c.name}
+                        </label>
                         ))}
                     </div>
                     <h4 className='text-center mt-3'>Filter by Price</h4>
                     <div className='d-flex flex-column'>
                         <Radio.Group>
-                            {Prices?.map((p) => (<div key={p._id}>
+                            {Prices?.map((p) => (<div className='shadow-sm p-2 mb-1 bg-body-primary rounded' key={p._id}>
                                 <Radio value={p.array} onChange={(e) => setRadio(e.target.value)}>
                                     {p.name}
                                 </Radio>
@@ -139,11 +143,11 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='col-md-9'>
-                    <h1 className='text-center'>All Products</h1>
+                    <h1 className='text-center tw-font-sans tw-text-3xl tw-text-red-400'>All Products</h1>
                     <div className='d-flex flex-wrap'>
                         {products?.length > 0 ? (products?.map((p, i) => (
-                            <div className="card m-2" key={i + 1} style={{ width: "18rem" }}>
-                                <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt="..." style={{ width: "287px", height: '310px' }} />
+                            <div className="card m-2 shadow mb-5 bg-body-tertiary rounded tw-transform hover:tw-translate-y-4" key={i + 1} style={{ width: "18rem" }}>
+                                <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} className="card-img-top p-3" style={{ width: "287px", height: '310px' }} alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">{p.name}</h5>
                                     <p className="card-text">{p.description.substring(0, 60)}...</p>
@@ -151,18 +155,18 @@ const Home = () => {
                                         style: "currency",
                                         currency: "USD"
                                     })}</p>
-                                    <button className="btn btn-primary ms-1"
+                                    <button className="btn btn-primary ms-1 mx-2 tw-transform active:tw-scale-110"
                                         onClick={() => {
                                             setCart([...cart, p])
                                             localStorage.setItem("cart", JSON.stringify([...cart, p]))
                                             toast.success("Item added to Cart")
                                         }}>Add to Cart</button>
-                                    <button className="btn btn-secondary ms-1" onClick={(e) => navigate(`/product/${p.slug}`)}>Details</button>
+                                    <button className="btn btn-secondary mx-2 ms-1 tw-transform active:tw-scale-110" onClick={(e) => navigate(`/product/${p.slug}`)}>Details</button>
                                 </div>
                             </div>
                         ))) : (
                             <>
-                                <img src={Image6} style={{ marginLeft: "30px", width: "290px", height: "300px" }} alt='No product found by this filter' />
+                                <img src={Image6} className='tw-transform tw-animate-pulse' style={{ marginLeft: "30px", width: "290px", height: "300px" }} alt='No product found by this filter' />
                                 <h5>No product found by this filter</h5>
                             </>)}
                     </div>

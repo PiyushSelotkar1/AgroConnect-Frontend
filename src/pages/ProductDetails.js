@@ -33,29 +33,48 @@ const ProductDetails = () => {
     }
     return (
         <Layout>
-            <div className='row container'>
-                <div className='col-md-6'>
-                    <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`} class="card-img-top" alt="..." style={{ height: '400px', width: '300px' }} />
-                </div>
-                <div className='col-md-6'>
-                    <div className='row container'>
-                        <h1 className='text-center'>Product Details</h1>
-                        <h6>Name: {product.name}</h6>
-                        <h6>Description: {product.description}</h6>
-                        <h6>Price: {product.price}</h6>
-                        <h6>Category: {product?.category?.name}</h6>
-                        <a href="#" class="btn btn-primary w-25 mt-3" >Add to Cart</a>
+            <div className='tw-flex tw-justify-center' style={{ height: "70vh" }}>
+                <div className='row container tw-flex tw-shadow-xl tw-shadow-red-300/20 tw-pb-4' style={{ width: "80vw", height: "68vh" }}>
+                    <div className='col-md-6'>
+                        <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`} class="card-img-top tw-rounded-lg tw-mb-4" alt="..." style={{ height: '400px', width: '300px' }} />
+                    </div>
+                    <div className='col-md-6'>
+                        <div className='container'>
+                            <h1 className='text-center tw-my-5 tw-text-2xl tw-text-green-500'>Product Details</h1>
+                            <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Name: {product.name}</h6>
+                            <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Description: {product.description}</h6>
+                            <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Price: ${product.price}</h6>
+                            <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Category: {product?.category?.name}</h6>
+                            <h5 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Available Colors:</h5>
+                            <div className='tw-flex'>
+                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-red-600 mx-3'></div>
+                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-yellow-600 mx-3'></div>
+                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-green-700 mx-3'></div>
+                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-blue-700 mx-3'></div>
+                            </div>
+                            <h5 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Available Sizes:</h5>
+                            <div className='tw-flex'>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>XS</button>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>S</button>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>M</button>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>L</button>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>XL</button>
+                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>2XL</button>
+
+                            </div>
+                            <a href="#" class="btn btn-primary w-25 mt-3 tw-transform active:tw-scale-110" >Add to Cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr />
+
             <div className='row container'>
-                <h4>Similar Products</h4>
-                {relatedProducts.length < 1 && <p className='text-area'>No Similar Products found</p>}
+                <h4 className='tw-font-sans tw-text-2xl tw-text-slate-700'>Similar Products</h4>
+                {relatedProducts.length < 1 && <p className='text-area tw-font-sans tw-text-2xl tw-text-red-300'>No Similar Products found</p>}
                 <div className='d-flex flex-wrap'>
                     {relatedProducts?.map((p) => (
                         <div className="card m-2" style={{ width: "15rem" }}>
-                            <img className="mt-2" src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} class="card-img-top" alt="..." style={{ height: '190px', width: '200px' }} />
+                            <img className="mt-2" src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} class="card-img-top" alt="..." style={{ height: '190px', width: '280px' }} />
                             <div class="card-body">
                                 <h5 class="card-title">{p.name}</h5>
                                 <p class="card-text">{p.description.substring(0, 30)}...</p>
