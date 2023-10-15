@@ -146,8 +146,8 @@ const Home = () => {
                     <h1 className='text-center tw-font-sans tw-text-3xl tw-text-red-400'>All Products</h1>
                     <div className='d-flex flex-wrap'>
                         {products?.length > 0 ? (products?.map((p, i) => (
-                            <div className="card m-2 shadow mb-5 bg-body-tertiary rounded tw-transform hover:tw-translate-y-4" key={i + 1} style={{ width: "18rem" }}>
-                                <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} className="card-img-top p-3" style={{ width: "287px", height: '310px' }} alt="..." />
+                            <div className="card m-2" key={i + 1} style={{ width: "18rem" }}>
+                                <img src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt="..." style={{ width: "287px", height: '310px' }} />
                                 <div className="card-body">
                                     <h5 className="card-title">{p.name}</h5>
                                     <p className="card-text">{p.description.substring(0, 60)}...</p>
