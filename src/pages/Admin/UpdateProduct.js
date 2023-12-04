@@ -82,7 +82,7 @@ const UpdateProduct = () => {
                 }
             });
             if (data?.success) {
-                toast.success(`${data.name} updated successfully`);
+                toast.success(`${data?.name} updated successfully`);
                 navigate('/dashboard/admin/products')
             } else {
                 console.log(data.message);
