@@ -45,21 +45,11 @@ const ProductDetails = () => {
                             <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Description: {product.description}</h6>
                             <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Price: ${product.price}</h6>
                             <h6 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Category: {product?.category?.name}</h6>
-                            <h5 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Available Colors:</h5>
-                            <div className='tw-flex'>
-                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-red-600 mx-3'></div>
-                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-yellow-600 mx-3'></div>
-                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-green-700 mx-3'></div>
-                                <div className='tw-h-6 tw-w-6 tw-rounded-full tw-bg-blue-700 mx-3'></div>
-                            </div>
+
                             <h5 className='tw-my-2 tw-font-sans tw-text-slate-700 tw-text-lg'>Available Sizes:</h5>
                             <div className='tw-flex'>
-                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>XS</button>
                                 <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>S</button>
-                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>M</button>
                                 <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>L</button>
-                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>XL</button>
-                                <button className='btn mx-2 hover:tw-bg-black hover:tw-text-emerald-50' style={{ border: "solid 1px black" }}>2XL</button>
 
                             </div>
                             <a href="#" class="btn btn-primary w-25 mt-3 tw-transform active:tw-scale-110" >Add to Cart</a>

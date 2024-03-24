@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { AiOutlineShop } from 'react-icons/ai';
+import { GiFarmTractor } from "react-icons/gi";
 import { useAuth } from '../../context/auth';
 import { toast } from 'react-hot-toast';
 import SearchInput from '../form/SearchInput';
@@ -34,11 +34,14 @@ const Header = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <Link to="/" className="navbar-brand tw-text-green-600"><AiOutlineShop /> Ecommerce App</Link>
+                        <Link to="/" className="navbar-brand tw-text-green-600"><GiFarmTractor /> AgroConnect</Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <SearchInput />
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link" >Home</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/analysis" className="nav-link" >Analysis</NavLink>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown">

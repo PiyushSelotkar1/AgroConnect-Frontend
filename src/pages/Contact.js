@@ -35,7 +35,7 @@ const Contact = () => {
                                 />
                                 <h5>Email</h5>
                             </div>
-                            <p>ecommerce@gmail.com</p>
+                            <p>argoconnect@gmail.com</p>
                         </div>
                         <div className='toll-free'>
                             <div className='t-img'>
