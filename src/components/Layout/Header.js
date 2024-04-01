@@ -15,7 +15,7 @@ const Header = () => {
     const handleLogout = () => {
         let answer;
         if (cart?.length > 0) {
-            answer = window.prompt('Áre you surely want to logout without buying the items in your cart!')
+            answer = window.prompt('Are you sure you want to logout without buying the items in your cart?')
         }
         if (!answer) return;
         setAuth({
@@ -24,7 +24,7 @@ const Header = () => {
             token: ''
         })
         localStorage.removeItem('auth');
-        toast.success('Logout Successfully')
+        toast.success('Logout Successful')
     }
     return (
         <>
@@ -35,8 +35,10 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                         <Link to="/" className="navbar-brand tw-text-green-600"><GiFarmTractor /> AgroConnect</Link>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <SearchInput />
+                        </ul>
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link" >Home</NavLink>
                             </li>
@@ -50,7 +52,7 @@ const Header = () => {
                                 <ul className="dropdown-menu">
                                     <li><Link className="dropdown-item" to={'/categories'}>All Categories</Link></li>
                                     {categories?.map((c) => (
-                                        <li><Link className="dropdown-item" to={`/category/${c.slug}`}>{c.name}</Link></li>
+                                        <li key={c.slug}><Link className="dropdown-item" to={`/category/${c.slug}`}>{c.name}</Link></li>
 
                                     ))}
                                 </ul>
@@ -101,8 +103,15 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink to="/cart" className="nav-link" >Cart <Badge count={cart?.length}></Badge></NavLink>
                             </li>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    Language
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><a className="dropdown-item" href="https://translate.google.com/">Google Translate</a></li>
+                                </ul>
+                            </li>
                         </ul>
-
                     </div>
                 </div>
             </nav >
