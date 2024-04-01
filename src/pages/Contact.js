@@ -17,7 +17,7 @@ const Contact = () => {
                 </div>
                 <div className='col-md-5'>
                     <h1 className='con-title text-center'>Contact Us</h1>
-                    <h5 className='con-content'>&nbsp; &nbsp; "Connect with our passionate team of shopping guides"</h5>
+                    <h5 className='con-content'>&nbsp; &nbsp; "Connect with our passionate team."</h5>
                     <div className='waystocont'>
                         <div className='phone'>
                             <div className='p-img'>
@@ -26,7 +26,7 @@ const Contact = () => {
                                 />
                                 <h5>Call Us</h5>
                             </div>
-                            <p>+9129930920</p>
+                            <p>+91987654321</p>
                         </div>
                         <div className='email'>
                             <div className='e-img'>
@@ -35,7 +35,7 @@ const Contact = () => {
                                 />
                                 <h5>Email</h5>
                             </div>
-                            <p>argoconnect@gmail.com</p>
+                            <p>agroconnect@gmail.com</p>
                         </div>
                         <div className='toll-free'>
                             <div className='t-img'>
