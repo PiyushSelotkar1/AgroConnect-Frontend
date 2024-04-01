@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='footer p-3'>
-            <h4 className='text-center'>All rights reserved &copy; Sanskruti</h4>
+            <h4 className='text-center'>All rights reserved &copy; 2024 AgroConnect</h4>
             <div className='text-center mt-3'>
                 <Link to="/about">About</Link>
                 |
