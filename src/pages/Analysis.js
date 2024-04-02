@@ -1,34 +1,6 @@
-// import React from 'react';
-// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-// import BottomCropsPage from './bottom_crops'; // assuming bottom_crops.js exists
-// import './App.css'; // assuming you have your CSS file for styling
-
-// const crops = [
-//     { name: 'Wheat', yield: 500 },
-//     { name: 'Rice', yield: 650 },
-//     { name: 'Fruits', yield: 720 },
-//     { name: 'Soybean', yield: 420 },
-//     { name: 'Vegetables', yield: 820 },
-// ];
-
-// function Analysis() {
-//     return (
-//         <div className="App">
-//             <header className="App-header">
-//                 <h1>Crop Data</h1>
-//             </header>
-//             {}
-//         </div>
-//     );
-// }
-
-// export default Analysis;
-// ---------------------------------------------------------------------------------
-
-
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import './App.css'; // Assuming you have your CSS file for styling
+import '../App.css'; // Assuming you have your CSS file for styling
 
 const cropNames = [
     'Wheat',
