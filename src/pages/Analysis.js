@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import '../App.css'; // Assuming you have your CSS file for styling
+import '../App.css'; 
 
 const cropNames = [
     'Wheat',
