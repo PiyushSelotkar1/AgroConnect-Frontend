@@ -1,5 +1,5 @@
-// import React from 'react';
-// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 // import BottomCropsPage from './bottom_crops'; // assuming bottom_crops.js exists
 // import './App.css'; // assuming you have your CSS file for styling
 
@@ -28,7 +28,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import Chart from 'chart.js/auto';
-import './App.css'; // Assuming you have your CSS file for styling
+import '../App.css'; // Assuming you have your CSS file for styling
 
 const cropNames = [
     'Wheat',
