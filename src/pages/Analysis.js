@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Chart from 'chart.js';
+import {Chart} from 'chart.js';
 // import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 
